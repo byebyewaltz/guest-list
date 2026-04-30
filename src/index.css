@@ -1,39 +1,97 @@
+/*GLOBAL RESET + BASE STYLES*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #f7f7f9;
+  color: #222;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/*HEADERS*/
+h1, h2 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+/*LIST STYLING*/
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: white;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover effect for clickable list items */
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/*BUTTONS*/
+button {
+  background-color: #4b6bfb; /* soft blue accent */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+button:hover {
+  background-color: #3d59d9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/*DETAIL CARD*/
+.details-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  max-width: 500px;
+}
+
+/*RESPONSIVE*/
+@media (max-width: 600px) {
+  body {
+    padding: 14px;
   }
-  
-  #root {
-    max-width: 60ch;
-    margin: 0 auto;
-    padding: 1ch;
-  
-    display: flex;
-    flex-direction: column;
-    gap: 1ch;
-    align-items: center;
+
+  li {
+    padding: 12px 14px;
   }
-  
-  table {
+
+  button {
     width: 100%;
-    text-align: left;
-    border: 2px solid black;
-    border-collapse: collapse;
   }
-  
-  thead {
-    border-bottom: 2px solid black;
-    text-transform: uppercase;
-  }
-  
-  th,
-  td {
-    border: 1px dashed #aaa;
-    padding: 0.5ch;
-  }
-  
-  tbody tr:nth-child(odd) {
-    background: #f0f0f0;
-  }
-  
+}
+
+.guest-list-item {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.app-container {
+  padding: 20px;
+}
