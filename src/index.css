@@ -1,4 +1,4 @@
-/*GLOBAL RESET + BASE STYLES*/
+/* GLOBAL RESET + BASE STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -13,37 +13,78 @@ body {
   line-height: 1.5;
 }
 
-/*HEADERS*/
+/* HEADERS */
 h1, h2 {
   font-weight: 600;
   margin-bottom: 12px;
   color: #1a1a1a;
 }
 
-/*LIST STYLING*/
-ul {
-  list-style: none;
-  padding: 0;
+/* GUEST TABLE LAYOUT */
+.guest-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
 }
 
-li {
+/* Column header row */
+.guest-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+}
+
+/* Each guest row */
+.guest-list-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
   background: white;
   padding: 14px 16px;
   border-radius: 10px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-/* Hover effect for clickable list items */
-li:hover {
+.guest-list-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f0f4ff;
 }
 
-/*BUTTONS*/
+/* Individual cells inside a guest row */
+.guest-cell {
+  padding-right: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.guest-cell.name {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.guest-cell.email {
+  color: #4b6bfb;
+  font-size: 0.9rem;
+}
+
+.guest-cell.phone {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* BUTTONS */
 button {
-  background-color: #4b6bfb; /* soft blue accent */
+  background-color: #4b6bfb;
   color: white;
   border: none;
   padding: 10px 16px;
@@ -63,35 +104,41 @@ button:active {
   transform: translateY(0);
 }
 
-/*DETAIL CARD*/
+/* DETAIL CARD */
 .details-card {
   background: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   max-width: 500px;
 }
 
-/*RESPONSIVE*/
-@media (max-width: 600px) {
+/* APP CONTAINER */
+.app-container {
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
   body {
     padding: 14px;
   }
 
-  li {
-    padding: 12px 14px;
+  /* Stack columns on small screens */
+  .guest-table-header {
+    display: none;
+  }
+
+  .guest-list-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .guest-cell {
+    white-space: normal;
   }
 
   button {
     width: 100%;
   }
-}
-
-.guest-list-item {
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.app-container {
-  padding: 20px;
 }
